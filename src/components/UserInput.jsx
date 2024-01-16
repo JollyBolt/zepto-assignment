@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { people } from '../constants'
+import { people } from '../constants/index.js'
 import Card from './Card.jsx'
-import Popup from './Popup'
+import Popup from './Popup.jsx'
 
 
 const UserInput = () => {
