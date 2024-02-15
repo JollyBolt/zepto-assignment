@@ -1,16 +1,41 @@
-import React from 'react'
+import React, { useEffect,useState, useRef } from 'react'
 
-const PopupField = ({user,users,setIsFocus,setUsers,setSearch,setSelected,selected}) => {
-    const handleClick = () =>{
-        setUsers(users.filter((item)=>(item.index!==user.index)))
-        setSelected([...selected,user])
-        setSearch("")
-        setIsFocus(false)
+const PopupField = ({user,handleClick,cursor,index}) => {
+    const [id,setId] = useState(0)
+
+    const ref = useRef()
+
+    const handleScrollUp = () =>{
+        if(ref.current)
+        ref.current.scrollIntoView({
+            behavior: "smooth",
+            block: "end",
+          })
     }
+    const handleScrollDown = () =>{
+        if(ref.current)
+        ref.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          })
+    }
+
+    useEffect(()=>{
+        if(id<cursor){
+            setId(cursor)
+            handleScrollDown()
+        }
+        else {
+            setId(cursor)
+            handleScrollUp()
+        }
+    },[cursor])
+
     return (
         <div
-        className='flex items-center justify-between gap-4 hover:bg-gray-300 p-3 pr-5 cursor-pointer'
-        onClick={handleClick}>
+        ref={index === id ? ref : null}
+        className={`flex items-center justify-between ${cursor==index?"bg-gray-300":""} gap-10 hover:bg-gray-300 p-3 pr-5 cursor-pointer`}
+        onClick={()=>handleClick(user)}>
             <div className='flex items-center gap-3'>
                 <img
                     src={`https://ui-avatars.com/api/?name=${user.name}&background=FFC300`}

@@ -1,9 +1,11 @@
 import CloseIcon from '@mui/icons-material/Close';
 
-const Card = ({ user,users,setUsers,setSelected,selected }) => {
+const Card = ({ user,users,setUsers,setSelected,selected,inputRef,setIsVisible }) => {
   const handleDelete = () =>{
     setSelected(selected.filter((item)=>(item.index!==user.index)))
     setUsers([...users,user])
+    inputRef.current.focus()
+    setIsVisible(true)
   }
   return (
     <div className='flex items-center gap-2 bg-gray-400 rounded-3xl pr-2'  >

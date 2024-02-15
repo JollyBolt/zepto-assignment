@@ -26,7 +26,22 @@ export const people = [
     },
     {
         "index":6,
-        "name":"Yash Mishra",
-        "email":"yash@gmail.com",
+        "name":"Ishita Singh",
+        "email":"ishita@gmail.com",
+    },
+    {
+        "index":7,
+        "name":"Akshay Kumar",
+        "email":"akshay@gmail.com",
+    },
+    {
+        "index":8,
+        "name":"Ria Kapoor",
+        "email":"ria@gmail.com",
+    },
+    {
+        "index":9,
+        "name":"Sue Heck",
+        "email":"sue@gmail.com",
     },
 ]
