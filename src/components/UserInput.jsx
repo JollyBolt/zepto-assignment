@@ -72,7 +72,7 @@ const UserInput = () => {
           onKeyDown={handleKeyDown}
           placeholder='Add new user... '
           className='px-3 w-full h-[40px] focus:outline-none relative'
-          autoComplete="new-password"
+          autoComplete="off"
         />
         {
           search.trim()!="" && 
